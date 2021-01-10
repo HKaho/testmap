@@ -77,6 +77,10 @@ fetch("vector/point.geojson")
             onEachFeature: function (feature, layer) {
                 let field = "目標地点: " + feature.properties.OBJECTID;
                 layer.bindPopup(field);
+                layer.on('click', function (e) {
+                    // 経緯度位置に移動
+                    map.panTo(e.latlng);
+                });
             }
         }).addTo(PointAll);
     });
@@ -98,6 +102,10 @@ fetch("vector/line.geojson")
             onEachFeature: function (feature, layer) {
                 let field = "距離(m): " + feature.properties.Shape_len;
                 layer.bindPopup(field);
+                layer.on('click', function (e) {
+                    // 経緯度位置に移動
+                    map.panTo(e.latlng);
+                });
             },
             clickable: true
         }).addTo(LineAll);
@@ -157,6 +165,10 @@ fetch("vector/polygon.geojson")
             onEachFeature: function (feature, layer) {
                 var field = "浸水深さ(m): " + feature.properties.MEANmax_;
                 layer.bindPopup(field);
+                layer.on('click', function (e) {
+                    // 経緯度位置に移動
+                    map.panTo(e.latlng);
+                });
             }
         }).addTo(PolygonAll);
     });
