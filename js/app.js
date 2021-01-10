@@ -182,6 +182,9 @@ L.control.scale({
     imperial: false,
     maxWidth: 300
 }).addTo(map);
+
+// URLに経緯度とズームレベル表示
+let hash = new L.Hash(map);
 /*// マーカー追加
 let MapMarker = L.marker([35.6810, 139.7670]).addTo(map);
 // サークル追加
