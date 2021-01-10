@@ -72,6 +72,11 @@ fetch("vector/point.geojson")
                 } else if (feature.properties.OBJECTID <= 25) {
                     return L.marker(layer, { icon: IconPin02 });
                 }
+            },
+            // 属性設定
+            onEachFeature: function (feature, layer) {
+                let field = "目標地点: " + feature.properties.OBJECTID;
+                layer.bindPopup(field);
             }
         }).addTo(PointAll);
     });
@@ -88,7 +93,13 @@ fetch("vector/line.geojson")
                 weight: 3,
                 opacity: 0.8,
                 dashArray: [10, 5]
-            }
+            },
+            // 属性設定
+            onEachFeature: function (feature, layer) {
+                let field = "距離(m): " + feature.properties.Shape_len;
+                layer.bindPopup(field);
+            },
+            clickable: true
         }).addTo(LineAll);
     });
 // GeoJSONポリゴン読み込み
@@ -141,6 +152,11 @@ fetch("vector/polygon.geojson")
                         fillOpacity: 0.8
                     };
                 }
+            },
+            // 属性設定
+            onEachFeature: function (feature, layer) {
+                var field = "浸水深さ(m): " + feature.properties.MEANmax_;
+                layer.bindPopup(field);
             }
         }).addTo(PolygonAll);
     });
