@@ -185,6 +185,27 @@ L.control.scale({
 
 // URLに経緯度とズームレベル表示
 let hash = new L.Hash(map);
+
+// 現在位置取得
+let lc = L.control.locate({
+    position: "topleft",
+    flyTo: "true",
+    markerStyle: {
+        color: "#fff",
+        fillColor: "#2A93EE",
+        fillOpacity: 1,
+        weight: 3,
+        opacity: 1,
+        radius: 9
+    },
+    strings: {
+        title: "現在位置ボタン",
+        popup: "ここにいるよ!!"
+    },
+    locateOptions: {
+        maxZoom: 6
+    }
+}).addTo(map);
 /*// マーカー追加
 let MapMarker = L.marker([35.6810, 139.7670]).addTo(map);
 // サークル追加
