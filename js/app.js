@@ -206,6 +206,7 @@ let lc = L.control.locate({
         maxZoom: 6
     }
 }).addTo(map);
+lc.start();
 /*// マーカー追加
 let MapMarker = L.marker([35.6810, 139.7670]).addTo(map);
 // サークル追加
